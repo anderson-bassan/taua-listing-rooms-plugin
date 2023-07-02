@@ -1,3 +1,60 @@
+function getCookie(name) {
+  const cookieString = document.cookie;
+  const cookies = cookieString.split('; ');
+
+  for (let i = 0; i < cookies.length; i++) {
+    const cookie = cookies[i];
+    const [cookieName, cookieValue] = cookie.split('=');
+
+    if (cookieName === name) {
+      return decodeURIComponent(cookieValue);
+    }
+  }
+
+  return null;
+}
+
+const sendPostRequest = (url, payLoad, callback) => {
+  fetch(url, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(payLoad)
+  })
+  .then(response => {
+    if (response.ok) {
+      callback();
+    } else {
+      throw new Error('Response error: ' + response.status);
+    }
+  })
+  .catch(error => {
+    console.error('Error sending data:', error);
+  });
+
+}
+
+
+
+
+
+
+const updatePriceWidget = () => {
+  const displayTotalPriceValue = getCookie('displayTotalPrice');
+
+  console.log(displayTotalPriceValue);
+
+  const displayTotalPrice = document.querySelector('#price-widget-display-price');
+  displayTotalPrice.innerText = displayTotalPriceValue;
+}
+
+
+
+
+
+
+
 window.addEventListener('load', () => {
   const sliders = document.querySelectorAll('.slider-wrapper');
 
@@ -65,6 +122,13 @@ window.addEventListener('load', () => {
       const item = button.closest('.item');
       itemData = Object.fromEntries(Object.entries(item.dataset));
 
+
+      // const urlParams = new URLSearchParams(window.location.search);
+      const urlParams = new URLSearchParams('?hotel=6&checkin=2023-08-03&checkout=2023-08-10&adults=1&children=2&child_age_1=2&child_age_2=3');
+      for (const [key, value] of urlParams.entries()) {
+        itemData[key] = value;
+      }
+
       popupWrapper.classList.add('active');
 
       event.preventDefault();
@@ -76,28 +140,35 @@ window.addEventListener('load', () => {
     numberDropdown.value = 1;
   });
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   sendButton.addEventListener('click', () => {
     const dropdownValue = numberDropdown.value;
 
     itemData.rooms = dropdownValue;
 
-    const url = 'http://localhost/wp-json/lista-quartos-plugin/v1/get-room-price';
+    const url = 'http://localhost/wp-json/lista-quartos-plugin/v1/set-room-cookies';
 
-    fetch(url, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(itemData)
-    })
-    .then(response => response.json())
-    .then(json => JSON.parse(json))
-    .then(data => {
-      priceWidget.innerText = 'R$ ' + data.total_price;
-    })
-    .catch(error => {
-      console.error('Error sending data:', error);
-    });
+    sendPostRequest(url, itemData, updatePriceWidget)
 
     popupWrapper.classList.remove('active');
   });

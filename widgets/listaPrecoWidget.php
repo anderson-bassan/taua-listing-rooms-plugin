@@ -30,6 +30,12 @@ class listaPrecoWidget extends Widget_Base {
     protected function render() {
         $settings = $this->get_settings_for_display();
 
-        echo '<div id="price-widget"></div>';
+        $priceWidgetLayout = <<<EOT
+          <div id="price-widget">
+            <p>R$ <span id="price-widget-display-price"></span></p>
+          </div>
+          EOT;
+
+        echo $priceWidgetLayout;
     }
 }

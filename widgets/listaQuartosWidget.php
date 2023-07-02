@@ -3,7 +3,6 @@ use Elementor\Widget_Base;
 
 class ListaQuartosWidget extends Widget_Base {
     private $api_url = 'https://74eubmkfx45x2cethdv23m6usm0jypcu.lambda-url.us-east-1.on.aws/?hotel=6&checkin=2023-08-03&checkout=2023-08-10&adults=1&children=2&child_age_1=2&child_age_2=3';
-    private $local_url = 'https://74eubmkfx45x2cethdv23m6usm0jypcu.lambda-url.us-east-1.on.aws/?hotel=6&checkin=2023-08-03&checkout=2023-08-10&adults=1&children=2&child_age_1=2&child_age_2=3';
     // private $local_url = 'http' . (isset($_SERVER['HTTPS']) ? 's' : '') . '://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
     // private $api_url = 'http://localhost:3000/';
 
@@ -211,26 +210,14 @@ class ListaQuartosWidget extends Widget_Base {
             $itemBonus = str_replace("</p>", "</li>", str_replace("<p class=\"p1\">", "<li><i aria-hidden=\"true\" class=\"fas fa-check\"></i>", $item['hotel_amenties']));
             $itemPrice = number_format($item['price'], 2, ',', '');
 
-            // Parse the API URL parameters
-            $urlParameters = $this->parseUrlParameters($this->local_url);
-
             // Get the itemCodigo value from the API response
-            $itemCodigo = isset($item['codigo']) ? $item['codigo'] : '';
-
-            // Generate data attributes
-            $dataAttributes = '';
-            foreach ($urlParameters as $param => $value) {
-                $dataAttributes .= 'data-' . $param . '="' . esc_attr($value) . '" ';
-            }
-
-            // Add itemCodigo as a data attribute
-            $dataAttributes .= 'data-itemCodigo="' . esc_attr($itemCodigo) . '" ';
+            $roomCode = 'data-roomCode="' . esc_attr(isset($item['codigo']) ? $item['codigo'] : '') . '" ';
 
             // Generate the item icons
             $itemIcons = $this->generate_item_icons($item);
 
 
-            $html .= $this->generate_item_html($galleryString, $dotsString, $itemTitle, $itemDescription, $itemBonus, $itemPrice, $itemIcons, $dataAttributes);
+            $html .= $this->generate_item_html($galleryString, $dotsString, $itemTitle, $itemDescription, $itemBonus, $itemPrice, $itemIcons, $roomCode);
         }
 
         return $html;
