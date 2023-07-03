@@ -111,3 +111,153 @@
   roomCode: SUPCASAL
   rooms: 3
   displayTotalPrice: 24864.3
+  generateURL function variables at run time 2023-07-03 19:04:13 :
+
+  url:  https://74eubmkfx45x2cethdv23m6usm0jypcu.lambda-url.us-east-1.on.aws/?hotel=&checkin=&checkout=&adults=&children=&child_age_1=&child_age_2=
+
+  calculateTotalPrice function variables at run time 2023-07-03 19:04:15 :
+
+  priceValues:  Array
+  numberOfRooms: 
+  total: 0
+  set_room_cookies function variables at run time 2023-07-03 19:04:15 :
+
+  hotel:  6
+  checkin: 2023-08-03
+  checkout: 2023-08-10
+  adults: 1
+  children: 2
+  child_age_1: 2
+  child_age_2: 3
+  roomCode: SUPCASAL
+  rooms: 2
+  displayTotalPrice: 0
+  generateURL function variables at run time 2023-07-03 19:12:06 :
+
+  url:  https://74eubmkfx45x2cethdv23m6usm0jypcu.lambda-url.us-east-1.on.aws/?hotel=6&checkin=2023-08-03&checkout=2023-08-10&adults=1&children=2&child_age_1=2&child_age_2=3
+
+  calculateTotalPrice function variables at run time 2023-07-03 19:12:08 :
+
+  priceValues:  Array
+  numberOfRooms: 2
+  total: 16576.2
+  set_room_cookies function variables at run time 2023-07-03 19:12:08 :
+
+  hotel:  6
+  checkin: 2023-08-03
+  checkout: 2023-08-10
+  adults: 1
+  children: 2
+  child_age_1: 2
+  child_age_2: 3
+  roomCode: SUPCASAL
+  rooms: 2
+  displayTotalPrice: 16576.2
+2023-07-03 19:46:20: set_user_data function variables at run time:
+
+
+    firstName: 
+
+    lastName: 
+
+    email: 
+
+    cpf: 
+
+    countryCode: 55
+
+    ddd: 
+
+    phone: 
+
+    address: 
+
+    houseNumber: 
+
+    houseInfo: 
+
+    country: 
+
+    state: 
+
+2023-07-03 19:47:53: set_user_data function variables at run time:
+
+
+    firstName: 
+
+    lastName: 
+
+    email: 
+
+    cpf: 
+
+    countryCode: 55
+
+    ddd: 
+
+    phone: 
+
+    address: 
+
+    houseNumber: 
+
+    houseInfo: 
+
+    country: 
+
+    state: 
+
+2023-07-03 19:51:27: set_user_data function variables at run time:
+
+
+    firstName: Anderson
+
+    lastName: Bassan
+
+    email: contato@andersonbassan.com
+
+    cpf: 089.632.259-92
+
+    countryCode: 55
+
+    ddd: 41
+
+    phone: 4 1984-8512
+
+    address: Rua Tenente Djalma Dutra
+
+    houseNumber: 160
+
+    houseInfo: Centro
+
+    country: Brasil
+
+    state: PR
+
+2023-07-03 20:05:33: set_user_data function variables at run time:
+
+
+    firstName: Anderson
+
+    lastName: Bassan
+
+    email: contato@andersonbassan.com
+
+    cpf: 089.632.259-92
+
+    countryCode: 55
+
+    ddd: 41
+
+    phone: 4 1984-8512
+
+    address: Rua Tenente Djalma Dutra
+
+    houseNumber: 160
+
+    houseInfo: Centro
+
+    country: Brasil
+
+    state: AC
+

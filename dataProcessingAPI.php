@@ -1,4 +1,90 @@
 <?php
+// utils
+function logMessage($message) {
+  $logFile = plugin_dir_path(__FILE__) . "log.txt";
+  $logMessage = sprintf("%s: %s\n", date('Y-m-d H:i:s'), $message);
+  error_log($logMessage, 3, $logFile);
+}
+
+
+// validators
+
+
+function validateName($name) {
+  if (!preg_match('/^[A-Za-z\s]+$/', $name)) {
+    return false;
+  }
+
+  if (!(strlen($name) >= 3)) {
+    return false;
+  }
+
+  return true;
+}
+
+function validateLastName($lastName) {
+  if (!preg_match('/^[A-Za-z\s]+$/', $lastName)) {
+    return false;
+  }
+
+  if (!(strlen($lastName) >= 2)) {
+    return false;
+  }
+
+  return true;
+}
+
+function validateEMail($email) {
+  $emailPattern = '/^[^\s@]+@[^\s@]+\.[^\s@]+$/';
+
+  return preg_match($emailPattern, $email);
+}
+
+function validateCPF($cpf) {
+  // Remove non-digit characters from the CPF string
+  $cleanedCPF = preg_replace('/\D/', '', $cpf);
+
+  // CPF must have exactly 11 digits
+  if (strlen($cleanedCPF) !== 11) {
+    return false;
+  }
+
+  // Check for repeated digits
+  if (preg_match('/^(\d)\1{10}$/', $cleanedCPF)) {
+    return false;
+  }
+
+  return true;
+}
+
+function validateDDD($ddd) {
+  return preg_match('/^\d{2,}$/', $ddd);
+}
+
+function validatePhoneNumber($phoneNumber) {
+  $digitsOnly = preg_replace('/\D/', '', $phoneNumber); // Remove all non-digit characters
+
+  return preg_match('/^\d{8,9}$/', $digitsOnly) && strlen($digitsOnly) >= 8;
+}
+
+function validateAddress($address) {
+  return preg_match('/^[a-zA-Z0-9\s]+$/', $address);
+}
+
+function validateHouseNumber($houseNumber) {
+  return preg_match('/\d/', $houseNumber);
+}
+
+function validateState($state) {
+  return ($state != '');
+}
+
+function validateCountry($country) {
+  return ($country != '');
+}
+
+
+// api callbacks
 
 
 function set_room_cookies($request) {
@@ -25,25 +111,22 @@ function set_room_cookies($request) {
   $totalPrice = calculateTotalPrice();
   setcookie('displayTotalPrice', $totalPrice, 0, '/', '', false);
 
-  $logFile = plugin_dir_path(__FILE__) . "log.txt";
+  $logMessage = sprintf(
+    "set_room_cookies function variables at run time:\n\n
+    hotel: %s\n
+    checkin: %s\n
+    checkout: %s\n
+    adults: %s\n
+    children: %s\n
+    child_age_1: %s\n
+    child_age_2: %s\n
+    roomCode: %s\n
+    rooms: %s\n
+    displayTotalPrice: %s\n",
+    $hotel, $checkin, $checkout, $adults, $children, $childAge1, $childAge2, $roomCode, $rooms, $totalPrice
+  );
 
-  $logMessage = <<<EOT
-      set_room_cookies function variables at run time %s :
-
-      hotel:  %s
-      checkin: %s
-      checkout: %s
-      adults: %s
-      children: %s
-      child_age_1: %s
-      child_age_2: %s
-      roomCode: %s
-      rooms: %s
-      displayTotalPrice: %s
-
-    EOT;
-
-  error_log(sprintf($logMessage, date('Y-m-d H:i:s'), $hotel, $checkin, $checkout, $adults, $children, $childAge1, $childAge2, $roomCode, $rooms, $totalPrice), 3, $logFile);
+  logMessage($logMessage);
 }
 
 // Function to create custom URL based on data
@@ -60,17 +143,13 @@ function generateURL() {
   $url = $baseURL . "?hotel=$hotel&checkin=$checkin&checkout=$checkout&adults=$adults&children=$children&child_age_1=$childAge1&child_age_2=$childAge2";
 
 
-  $logFile = plugin_dir_path(__FILE__) . "log.txt";
+  $logMessage = sprintf(
+    "generateURL function variables at run time:\n\n
+    url: %s\n",
+    $url
+  );
 
-  $logMessage = <<<EOT
-      generateURL function variables at run time %s :
-
-      url:  %s
-
-
-    EOT;
-
-  error_log(sprintf($logMessage, date('Y-m-d H:i:s'), $url), 3, $logFile);
+  logMessage($logMessage);
 
   return $url;
 }
@@ -117,20 +196,118 @@ function calculateTotalPrice() {
   }
 
 
-  $logFile = plugin_dir_path(__FILE__) . "log.txt";
+  $logMessage = sprintf(
+    "calculateTotalPrice function variables at run time:\n\n
+    priceValues: %s\n
+    numberOfRooms: %s\n
+    total: %s\n",
+    $priceValues, $numberOfRooms, $total
+  );
 
-  $logMessage = <<<EOT
-      calculateTotalPrice function variables at run time %s :
-
-      priceValues:  %s
-      numberOfRooms: %s
-      total: %s
-
-    EOT;
-
-  error_log(sprintf($logMessage, date('Y-m-d H:i:s'), $priceValues, $numberOfRooms, $total), 3, $logFile);
+  logMessage($logMessage);
 
   return $total;
+}
+
+
+// personal data form end-points
+
+
+function set_user_data($request) {
+  $firstName = $request['firstName'];
+  $lastName = $request['lastName'];
+  $email = $request['email'];
+  $cpf = $request['cpf'];
+  $countryCode = $request['countryCode'];
+  $ddd = $request['ddd'];
+  $phone = $request['phone'];
+  $address = $request['address'];
+  $houseNumber = $request['houseNumber'];
+  $houseInfo = $request['houseInfo'];
+  $country = $request['country'];
+  $state = $request['state'];
+
+  $logMessage = sprintf(
+    "set_user_data function variables at run time:\n\n
+    firstName: %s\n
+    lastName: %s\n
+    email: %s\n
+    cpf: %s\n
+    countryCode: %s\n
+    ddd: %s\n
+    phone: %s\n
+    address: %s\n
+    houseNumber: %s\n
+    houseInfo: %s\n
+    country: %s\n
+    state: %s\n",
+    $firstName, $lastName, $email, $cpf, $countryCode, $ddd, $phone, $address, $houseNumber, $houseInfo, $country, $state
+  );
+
+  logMessage($logMessage);
+
+  if (validatePersonalData($request)) {
+    setcookie('firstName', $firstName, 0, '/', '', false);
+    setcookie('lastName', $lastName, 0, '/', '', false);
+    setcookie('email', $email, 0, '/', '', false);
+    setcookie('cpf', $cpf, 0, '/', '', false);
+    setcookie('countryCode', $countryCode, 0, '/', '', false);
+    setcookie('ddd', $ddd, 0, '/', '', false);
+    setcookie('phone', $phone, 0, '/', '', false);
+    setcookie('address', $address, 0, '/', '', false);
+    setcookie('houseNumber', $houseNumber, 0, '/', '', false);
+    setcookie('houseInfo', $houseInfo, 0, '/', '', false);
+    setcookie('country', $country, 0, '/', '', false);
+    setcookie('state', $state, 0, '/', '', false);
+
+    return ['ok' => true];
+  } else {
+    return ['ok' => false];
+  }
+}
+
+function validatePersonalData($request) {
+  if (!validateName($request['firstName'])) {
+    return false;
+  }
+
+  if (!validateLastName($request['lastName'])) {
+    return false;
+  }
+
+  if (!validateEMail($request['email'])) {
+    return false;
+  }
+
+  if (!validateCPF($request['cpf'])) {
+    return false;
+  }
+
+  if (!validateDDD($request['ddd'])) {
+    return false;
+  }
+
+  if (!validatePhoneNumber($request['phone'])) {
+    return false;
+  }
+
+  if (!validateAddress($request['address'])) {
+    return false;
+  }
+
+  if (!validateHouseNumber($request['houseNumber'])) {
+    return false;
+  }
+
+  if (!validateCountry($request['country'])) {
+    return false;
+  }
+
+  if (!validateState($request['state'])) {
+    return false;
+  }
+
+  return true;
 }
 
 
@@ -152,6 +329,11 @@ function register_api_routes() {
     register_rest_route('lista-quartos-plugin/v1', '/get-total-price', array(
         'methods' => 'GET',
         'callback' => 'calculateTotalPrice',
+    ));
+
+    register_rest_route('lista-quartos-plugin/v1', '/set-user-data', array(
+        'methods' => 'POST',
+        'callback' => 'set_user_data',
     ));
 }
 

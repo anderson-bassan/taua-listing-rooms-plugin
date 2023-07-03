@@ -4,9 +4,10 @@
 
   row-gap: 20px;
 
-  width: 100%;
+  width: calc(100% - 40px);
 
   padding: 40px 20px 40px 60px;
+  margin: 20px;
 
   background-color: #ffffff;
 
@@ -83,7 +84,7 @@
   grid-column: span 2;
 }
 
-#country-ddd-wrapper, #ddd-wrapper {
+#country-code-wrapper, #ddd-wrapper {
   display: flex;
   justify-content: flex-end;
   flex-direction: column;
@@ -108,7 +109,7 @@
   width: 100%;
 }
 
-#endereco-wrapper {
+#address-wrapper {
   display: flex;
   align-items: flex-start;
   justify-content: flex-end;
@@ -117,7 +118,7 @@
   grid-column: span 4;
 }
 
-#endereco-wrapper span {
+#address-wrapper span {
   font-family: "Co Headline Corp";
   font-size: 12px;
 }
@@ -150,7 +151,7 @@
 
 
 span.error {
-  /* display: none; */
+  display: none;
 
   margin-top: 5px;
   padding: 5px 15px;
@@ -168,6 +169,10 @@ span.error {
 
 span.error.active {
   display: block;
+}
+
+.error-wrapper {
+  grid-column: span 8;
 }
 
 
@@ -202,4 +207,28 @@ span.error.active {
 
 .buttons-wrapper button.change:hover {
   background-color: #FFA100;
+}
+
+
+/* TABLET */
+@media (max-width: 768px) {
+  #personal-data-form .fields {
+    grid-template-columns: repeat(4, calc(calc(100% - 60px) / 4));
+    padding-left: 20px;
+  }
+
+  .error-wrapper {
+      grid-column: span 4;
+  }
+}
+
+@media (max-width: 440px) {
+  #personal-data-form .fields {
+    grid-template-columns: repeat(2, calc(calc(100% - 20px) / 2));
+    padding-left: 20px;
+  }
+
+  .error-wrapper, #address-wrapper {
+      grid-column: span 2;
+  }
 }

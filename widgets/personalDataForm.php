@@ -50,8 +50,8 @@ class personalDataForm extends Widget_Base {
                 <input id="cpf" type="text" placeholder="CPF">
                 <span class="error">CPF inválido</span>
               </div>
-              <div id="country-ddd-wrapper">
-                <select id="country-ddd" placeholder="Brasil(+55)">
+              <div id="country-code-wrapper">
+                <select id="country-code" placeholder="Brasil(+55)">
                   <option value="55">Brasil (+55)</option>
                 </select>
               </div>
@@ -60,11 +60,12 @@ class personalDataForm extends Widget_Base {
               </div>
               <div id="phone-wrapper">
                 <input id="phone" type="text" placeholder="Telefone">
-                <span class="error">Telefone inválido.</span>
+                <span class="error">Telefone não deve incluir o DDD e deve ter entre 8 e 9 digitos.</span>
               </div>
-              <div id="endereco-wrapper">
+              <div id="address-wrapper">
                 <span>O endereço deve ser o mesmo do cartão de crédito</span>
-                <input id="endereco" type="text" placeholder="Endereço">
+                <input id="address" type="text" placeholder="Endereço">
+                <span class="error">Endereço deve conter apenas letras, números e espaços.</span>
               </div>
               <div id="house-number-wrapper">
                 <input id="house-number" type="text" placeholder="Número">
@@ -74,11 +75,13 @@ class personalDataForm extends Widget_Base {
               </div>
               <div id="country-wrapper">
                 <select id="country">
+                  <option value="" disabled selected>País</option>
                   <option value="Brasil">Brasil</option>
                 </select>
               </div>
               <div id="state-wrapper">
                 <select id="state">
+                  <option value="" disabled selected>Estado</option>
                   <option value="AC">Acre</option>
                   <option value="AL">Alagoas</option>
                   <option value="AP">Amapá</option>
@@ -107,6 +110,13 @@ class personalDataForm extends Widget_Base {
                   <option value="SE">Sergipe</option>
                   <option value="TO">Tocantins</option>
                 </select>
+              </div>
+              <div class="error-wrapper">
+                <span id="ddd-error" class="error">DDD deve conter apenas números</span>
+                <span id="house-number-error" class="error">Número (residência) deve conter apenas números</span>
+                <span id="country-error" class="error">Selecione um páis</span>
+                <span id="state-error" class="error">Selecione um estado</span>
+                <span id="user-data-error" class="error">Erro ao enviar dados do usuário</span>
               </div>
             </div>
             <div class="buttons-wrapper">

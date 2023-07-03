@@ -22,10 +22,16 @@ function register_custom_widget() {
 }
 
 function enqueue_plugin_scripts() {
-    wp_enqueue_script('lista-quartos-widget-script', plugin_dir_url(__FILE__) . '/assets/scripts/listaQuartosWidgetScript.js', array('jquery'), '1.0', true); // add element scripts
-    wp_enqueue_script('personal-data-form-script', plugin_dir_url(__FILE__) . '/assets/scripts/personalDataForm.js', array('jquery'), '1.0', true); // add element scripts
-    wp_enqueue_style('lista-quartos-widget-style', plugin_dir_url(__FILE__) . '/assets/styles/listaQuartosWidgetStyles.css', array(), '1.0', 'all'); // add element styles
-    wp_enqueue_style('personal-data-form-style', plugin_dir_url(__FILE__) . '/assets/styles/personalDataForm.css', array(), '1.0', 'all'); // add element styles
+    // Enqueue utils.js first
+    wp_enqueue_script('utils-script', plugin_dir_url(__FILE__) . '/assets/scripts/utils.js', array('jquery'), '1.0', true);
+
+    // Enqueue other scripts that depend on utils.js
+    wp_enqueue_script('lista-quartos-widget-script', plugin_dir_url(__FILE__) . '/assets/scripts/listaQuartosWidgetScript.js', array('utils-script'), '1.0', true);
+    wp_enqueue_script('personal-data-form-script', plugin_dir_url(__FILE__) . '/assets/scripts/personalDataForm.js', array('utils-script'), '1.0', true);
+
+    // Enqueue stylesheets
+    wp_enqueue_style('lista-quartos-widget-style', plugin_dir_url(__FILE__) . '/assets/styles/listaQuartosWidgetStyles.css', array(), '1.0', 'all');
+    wp_enqueue_style('personal-data-form-style', plugin_dir_url(__FILE__) . '/assets/styles/personalDataForm.css', array(), '1.0', 'all');
 }
 
 add_action('elementor/widgets/widgets_registered', 'register_custom_widget');

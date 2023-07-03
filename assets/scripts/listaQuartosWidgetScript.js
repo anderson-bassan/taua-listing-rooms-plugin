@@ -1,45 +1,3 @@
-function getCookie(name) {
-  const cookieString = document.cookie;
-  const cookies = cookieString.split('; ');
-
-  for (let i = 0; i < cookies.length; i++) {
-    const cookie = cookies[i];
-    const [cookieName, cookieValue] = cookie.split('=');
-
-    if (cookieName === name) {
-      return decodeURIComponent(cookieValue);
-    }
-  }
-
-  return null;
-}
-
-const sendPostRequest = (url, payLoad, callback) => {
-  fetch(url, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(payLoad)
-  })
-  .then(response => {
-    if (response.ok) {
-      callback();
-    } else {
-      throw new Error('Response error: ' + response.status);
-    }
-  })
-  .catch(error => {
-    console.error('Error sending data:', error);
-  });
-
-}
-
-
-
-
-
-
 const updatePriceWidget = () => {
   const displayTotalPriceValue = getCookie('displayTotalPrice');
 
@@ -140,27 +98,6 @@ window.addEventListener('load', () => {
     numberDropdown.value = 1;
   });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   sendButton.addEventListener('click', () => {
     const dropdownValue = numberDropdown.value;
 
@@ -168,7 +105,9 @@ window.addEventListener('load', () => {
 
     const url = 'http://localhost/wp-json/lista-quartos-plugin/v1/set-room-cookies';
 
-    sendPostRequest(url, itemData, updatePriceWidget)
+    sendPostRequest(url, itemData, updatePriceWidget, () => {
+      console.log('error');
+    });
 
     popupWrapper.classList.remove('active');
   });
