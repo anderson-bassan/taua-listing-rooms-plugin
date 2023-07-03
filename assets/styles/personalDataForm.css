@@ -1,0 +1,205 @@
+#personal-data-form {
+  display: flex;
+  flex-direction: column;
+
+  row-gap: 20px;
+
+  width: 100%;
+
+  padding: 40px 20px 40px 60px;
+
+  background-color: #ffffff;
+
+  border-radius: 30px;
+
+  filter: drop-shadow(2px 6px 10px rgba(0, 0, 0, 0.15));
+}
+
+#personal-data-form h2 {
+  margin-bottom: 0;
+
+  color: #00983A;
+
+  font-family: "Co Headline Corp", 'Helvetica', 'Roboto', sans-serif;
+  font-size: 20px;
+
+  filter: none;
+  text-shadow: none;
+  box-shadow: none;
+}
+
+#personal-data-form input, #personal-data-form select, #personal-data-form option {
+  width: 100%;
+
+  padding: 4px 15px;
+
+  color: #495057;
+
+  border: 1px solid #495057;
+  border-radius: 4px;
+
+  outline: none;
+  box-shadow: none;
+}
+
+#personal-data-form input:focus {
+  outline: 1px solid #F6AC20;
+}
+
+#personal-data-form input::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+
+  color: #495057;
+  opacity: 1; /* Firefox */
+}
+
+#personal-data-form input:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+
+  color: #495057;
+}
+
+#personal-data-form input::-ms-input-placeholder {
+  /* Microsoft Edge */
+
+  color: #495057;
+}
+
+#personal-data-form .fields {
+  display: grid;
+  grid-template-columns: repeat(8, calc(calc(100% - 140px) / 8));
+
+  column-gap: 20px;
+  row-gap: 20px;
+}
+
+#first-name-wrapper, #last-name-wrapper, #email-wrapper, #cpf-wrapper, #phone-wrapper, #house-info-wrapper {
+  position: relative;
+
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+
+  grid-column: span 2;
+}
+
+#country-ddd-wrapper, #ddd-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+}
+
+#cpf-wrapper {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  flex-direction: column;
+}
+
+#cpf-wrapper span:first-of-type {
+  font-family: "Co Headline Corp";
+  font-size: 12px;
+  text-decoration: underline;
+
+  cursor: pointer;
+}
+
+#cpf-wrapper span:nth-of-type(2) {
+  width: 100%;
+}
+
+#endereco-wrapper {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+  flex-direction: column;
+
+  grid-column: span 4;
+}
+
+#endereco-wrapper span {
+  font-family: "Co Headline Corp";
+  font-size: 12px;
+}
+
+#cpf-popup {
+  position: absolute;
+  top: 20px;
+
+  padding: 10px 20px;
+
+  background-color: #ffffff;
+
+  border-radius: 4px;
+
+  filter: drop-shadow(2px 6px 10px rgba(0, 0, 0, 0.15));
+
+  opacity: 0;
+
+  pointer-events: none;
+
+  transition: all .3s ease-in-out;
+}
+
+#cpf-popup.active {
+  opacity: 1;
+}
+
+
+/* errors */
+
+
+span.error {
+  /* display: none; */
+
+  margin-top: 5px;
+  padding: 5px 15px;
+
+  color: #721c24;
+  background-color: #f8d7da;
+
+  border-radius: 5px;
+
+  font-family: "Co Headline Corp";
+  font-size: 12px;
+
+  transition: all .3s ease-in-out;
+}
+
+span.error.active {
+  display: block;
+}
+
+
+/* buttons */
+
+
+.buttons-wrapper button {
+  display: none;
+
+  width: 200px;
+
+  padding: 10px 15px;
+
+  border-radius: 50px;
+}
+
+.buttons-wrapper button.active {
+  display: block;
+}
+
+.buttons-wrapper button.send {
+  background-color: #FF7900;
+}
+
+.buttons-wrapper button.send:hover {
+  background-color: #FF7900;
+}
+
+.buttons-wrapper button.change {
+  background-color: #FFA100;
+}
+
+.buttons-wrapper button.change:hover {
+  background-color: #FFA100;
+}

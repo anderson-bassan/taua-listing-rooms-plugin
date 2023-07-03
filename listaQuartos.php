@@ -16,11 +16,16 @@ function register_custom_widget() {
 
     require_once plugin_dir_path(__FILE__) . '/widgets/listaPrecoWidget.php';
     \Elementor\Plugin::instance()->widgets_manager->register_widget_type(new ListaPrecoWidget());
+
+    require_once plugin_dir_path(__FILE__) . '/widgets/personalDataForm.php';
+    \Elementor\Plugin::instance()->widgets_manager->register_widget_type(new personalDataForm());
 }
 
 function enqueue_plugin_scripts() {
     wp_enqueue_script('lista-quartos-widget-script', plugin_dir_url(__FILE__) . '/assets/scripts/listaQuartosWidgetScript.js', array('jquery'), '1.0', true); // add element scripts
+    wp_enqueue_script('personal-data-form-script', plugin_dir_url(__FILE__) . '/assets/scripts/personalDataForm.js', array('jquery'), '1.0', true); // add element scripts
     wp_enqueue_style('lista-quartos-widget-style', plugin_dir_url(__FILE__) . '/assets/styles/listaQuartosWidgetStyles.css', array(), '1.0', 'all'); // add element styles
+    wp_enqueue_style('personal-data-form-style', plugin_dir_url(__FILE__) . '/assets/styles/personalDataForm.css', array(), '1.0', 'all'); // add element styles
 }
 
 add_action('elementor/widgets/widgets_registered', 'register_custom_widget');
