@@ -56,12 +56,12 @@ class ListaQuartosWidget extends Widget_Base {
     public function generate_item_icons($item) {
         // generate icons
 
-        $icon1Image = plugin_dir_url(__FILE__) . '/assets/images/pensao.svg'; // pensao
-        $icon2Image = plugin_dir_url(__FILE__) . '/assets/images/ar-condicionado.svg'; // ar condicionado e wifi
-        $icon3Image = plugin_dir_url(__FILE__) . '/assets/images/tv.svg'; // tv e telefone
-        $icon4Image = plugin_dir_url(__FILE__) . '/assets/images/tacas-espumante.svg'; // espumante lirica com duas taças
-        $icon5Image = plugin_dir_url(__FILE__) . '/assets/images/carta.svg'; // carta padrão Tauá Momento
-        $icon6Image = plugin_dir_url(__FILE__) . '/assets/images/panela-ganache.svg'; // panela ganache
+        $icon1Image = plugins_url('/assets/images/pensao.svg', dirname(__FILE__)); // pensao
+        $icon2Image = plugins_url('/assets/images/ar-condicionado.svg', dirname(__FILE__)); // ar condicionado e wifi
+        $icon3Image = plugins_url('/assets/images/tv.svg', dirname(__FILE__));; // tv e telefone
+        $icon4Image = plugins_url('/assets/images/tacas-espumante.svg', dirname(__FILE__));; // espumante lirica com duas taças
+        $icon5Image = plugins_url('/assets/images/carta.svg', dirname(__FILE__)); // carta padrão Tauá Momento
+        $icon6Image = plugins_url('/assets/images/panela-ganache.svg', dirname(__FILE__));; // panela ganache
 
         $icon1Class = '';
         $icon2Class = '';
@@ -169,26 +169,36 @@ class ListaQuartosWidget extends Widget_Base {
 
     // generate pop up
     private function generate_popup_html() {
+      $closeButtonImg = plugins_url('/assets/images/close_black_24dp.svg', dirname(__FILE__)); // pensao
+
         $popupHTML = <<<EOT
-            <div class="popup-wrapper">
-              <div id="popup" class="popup">
-                  <div class="popup-content">
-                      <h3>Select a Number:</h3>
-                      <select id="number-dropdown">
-                          <option value="1">1</option>
-                          <option value="2">2</option>
-                          <option value="3">3</option>
-                          <option value="4">4</option>
-                          <option value="5">5</option>
-                      </select>
-                      <button id="popup-close">Close</button>
-                      <button id="send-button">Send</button>
+          <div class="popup-wrapper">
+            <div id="popup" class="popup">
+              <div class="popup-content">
+                <div class="best-deal">
+                  <div class="room-popup-info">
+                    <h3>Melhor Tarifa Disponível</h3>
+                    <p>Tarifa Não Reembolsável: sem direito a estorno; sem direito a alteração de data. Hospedagem com pensão completa: Check-in de Segunda a Sábado a partir das 15h e aos Domingos a partir das 17h, com direito ao Jantar. Check-out às 12h com direito a café da manhã e almoço. Bebidas: não alcoólicas inclusas apenas nas refeições: água, refrigerante e suco do dia. Demais bebidas devem ser pagas à parte. Em período de baixa temporada, o parque fica fechado às segundas e quintas-feiras (esses dias podem sofrer alteração sem aviso prévio).</p>
                   </div>
+                  <div class="room-popup-price">
+                    <span class="popup-price">R$<span class="popup-price" id="popup-price-value">2.657,70</span> / noite</span>
+                    <select id="number-dropdown">
+                      <option value="" disabled selected>ESCOLHER</option>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                    </select>
+                  </div>
+                  <img id="popup-close" src="%s">
+                </div>
               </div>
             </div>
+          </div>
         EOT;
 
-        return $popupHTML;
+        return sprintf($popupHTML, $closeButtonImg);
     }
 
 
@@ -226,7 +236,7 @@ class ListaQuartosWidget extends Widget_Base {
     // Function to generate the item HTML
     public function generate_item_html($galleryString, $dotsString, $itemTitle, $itemDescription, $itemBonus, $itemPrice, $itemIcons, $dataAttributes) {
         $itemTemplate = <<<EOT
-            <div class="item" $dataAttributes>
+            <div class="item" data-price="%s" $dataAttributes>
                 <div class="slider-wrapper" data-active="0">
                     %s
                     <div class="dots-wrapper">
@@ -252,7 +262,7 @@ class ListaQuartosWidget extends Widget_Base {
             </div>
         EOT;
 
-        return sprintf($itemTemplate, $galleryString, $dotsString, $itemTitle, $itemDescription, $itemBonus, $itemPrice, $itemIcons);
+        return sprintf($itemTemplate, $itemPrice, $galleryString, $dotsString, $itemTitle, $itemDescription, $itemBonus, $itemPrice, $itemIcons);
     }
 
 
@@ -262,10 +272,19 @@ class ListaQuartosWidget extends Widget_Base {
         // Retrieve the data from the API
         $data = json_decode($this->get_api_data(), true);
 
-        if (is_array($data)) {
+        if (is_array($data) && !isset($data['message'])) {
             echo "<input id='price-input' type='text' class='hidden' value=''>";
             echo "<div class=\"lista-quartos\">";
             echo $this->generate_item_html_for_data($data);
+            echo '</div>';
+            echo $this->generate_popup_html();
+        }
+
+        if (is_array($data) && isset($data['message'])) {
+            // insert popups using the function do_shortcode();
+
+            echo "<div class=\"lista-quartos\">";
+            echo '<p>' . $data['message'] . '</p>';
             echo '</div>';
             echo $this->generate_popup_html();
         }

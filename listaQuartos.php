@@ -19,6 +19,12 @@ function register_custom_widget() {
 
     require_once plugin_dir_path(__FILE__) . '/widgets/personalDataForm.php';
     \Elementor\Plugin::instance()->widgets_manager->register_widget_type(new personalDataForm());
+
+    require_once plugin_dir_path(__FILE__) . '/widgets/purchaseSummary.php';
+    \Elementor\Plugin::instance()->widgets_manager->register_widget_type(new purchaseSummary());
+
+    require_once plugin_dir_path(__FILE__) . '/widgets/guestsForms.php';
+    \Elementor\Plugin::instance()->widgets_manager->register_widget_type(new guestsForms());
 }
 
 function enqueue_plugin_scripts() {
@@ -31,7 +37,10 @@ function enqueue_plugin_scripts() {
 
     // Enqueue stylesheets
     wp_enqueue_style('lista-quartos-widget-style', plugin_dir_url(__FILE__) . '/assets/styles/listaQuartosWidgetStyles.css', array(), '1.0', 'all');
+    wp_enqueue_style('price-widget-style', plugin_dir_url(__FILE__) . '/assets/styles/priceWidgetStyles.css', array(), '1.0', 'all');
     wp_enqueue_style('personal-data-form-style', plugin_dir_url(__FILE__) . '/assets/styles/personalDataForm.css', array(), '1.0', 'all');
+    wp_enqueue_style('guests-form-style', plugin_dir_url(__FILE__) . '/assets/styles/guestsForm.css', array(), '1.0', 'all');
+    wp_enqueue_style('purchase-summary-style', plugin_dir_url(__FILE__) . '/assets/styles/purchaseSummary.css', array(), '1.0', 'all');
 }
 
 add_action('elementor/widgets/widgets_registered', 'register_custom_widget');

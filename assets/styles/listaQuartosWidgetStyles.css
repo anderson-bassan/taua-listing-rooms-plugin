@@ -286,6 +286,8 @@
   height: 100%;
 
   background-color: #000000dd;
+
+  z-index: 4;
 }
 
 .popup-wrapper.active {
@@ -293,18 +295,98 @@
 }
 
 .popup {
-  padding: 2rem;
+  position: relative;
 
+  width: 850px;
+
+  padding: 20px;
+  padding-top: 60px;
+
+  border-radius: 30px;
   background-color: #ffffff;
+
+  z-index: 4;
 }
 
 .popup-content {
   display: flex;
   flex-direction: column;
-
-  row-gap: 20px;
 }
 
 .hidden {
   display: none;
+}
+
+.elementor img#popup-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+
+  width: 24px;
+  height: 24px;
+
+  cursor: pointer;
+}
+
+.room-info {
+
+}
+
+.room-info h3 {
+  font-family: "Co Headline Corp", 'Helvetica', 'Roboto', sans-serif;
+  font-weight: 500;
+  font-size: 22px;
+}
+
+.best-deal {
+  display: flex;
+  align-items: stretch;
+
+  width: 100%;
+
+  padding: 35px;
+
+  border-radius: 30px;
+  border: 1px solid rgba(255,121,0,0);
+}
+
+.best-deal:hover {
+  border: 1px solid rgba(255,121,0,1);
+}
+
+.room-popup-info {
+  width: 70%;
+  height: 100%;
+}
+
+.room-popup-price {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  flex-direction: column;
+
+  width: 30%;
+  height: 100%;
+  min-height: 260px;
+}
+
+#number-dropdown {
+  padding: 0 20px;
+
+  color: rgba(255,110,0, 1);
+
+  border: 1px solid rgb(255, 110, 0);
+  border-radius: 20px;
+}
+
+#popup-price-value {
+  font-family: "Co Headline Corp", 'Roboto', sans-serif;
+  font-weight: 500;
+  font-size: 22px;
+}
+
+.popup-price {
+  font-family: "Co Headline Corp", 'Roboto', sans-serif;
+  font-size: 18px;
+  font-weight: regular;
 }

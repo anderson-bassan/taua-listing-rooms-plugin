@@ -261,3 +261,1203 @@
 
     state: AC
 
+2023-07-04 19:01:30: generate_item_icons function variables at run time:
+
+
+          directory: http://localhost/wp-content/plugins/C:/xampp/htdocs/wp-content/plugins/taua-listing-rooms-plugin-main/widgets/listaQuartosWidget.php/assets/images/pensao.svg
+
+2023-07-04 19:06:23: generate_item_icons function variables at run time:
+
+
+          directory: http://localhost/wp-content/plugins/taua-listing-rooms-plugin-main/widgets/assets/images/pensao.svg
+
+2023-07-04 19:08:32: generate_item_icons function variables at run time:
+
+
+          directory: http://localhost/wp-content/plugins/taua-listing-rooms-plugin-main/assets/images/pensao.svg
+
+2023-07-06 03:47:24: generateURL function variables at run time:
+
+
+    url: https://74eubmkfx45x2cethdv23m6usm0jypcu.lambda-url.us-east-1.on.aws/?hotel=&checkin=&checkout=&adults=&children=&child_age_1=&child_age_2=
+
+2023-07-06 03:47:25: calculateTotalPrice function variables at run time:
+
+
+    priceValues: Array
+
+    numberOfRooms: 
+
+    total: 0
+
+2023-07-06 03:47:25: set_room_cookies function variables at run time:
+
+
+    hotel: 6
+
+    checkin: 2023-08-03
+
+    checkout: 2023-08-10
+
+    adults: 1
+
+    children: 2
+
+    child_age_1: 2
+
+    child_age_2: 3
+
+    roomCode: SUPCASAL
+
+    rooms: 2
+
+    displayTotalPrice: 0
+
+2023-07-06 03:51:49: generateURL function variables at run time:
+
+
+    url: https://74eubmkfx45x2cethdv23m6usm0jypcu.lambda-url.us-east-1.on.aws/?hotel=6&checkin=2023-08-03&checkout=2023-08-10&adults=1&children=2&child_age_1=2&child_age_2=3
+
+2023-07-06 03:51:51: calculateTotalPrice function variables at run time:
+
+
+    priceValues: Array
+
+    numberOfRooms: 2
+
+    total: 16576.2
+
+2023-07-06 03:51:51: set_room_cookies function variables at run time:
+
+
+    hotel: 6
+
+    checkin: 2023-08-03
+
+    checkout: 2023-08-10
+
+    adults: 1
+
+    children: 2
+
+    child_age_1: 2
+
+    child_age_2: 3
+
+    roomCode: SUPCASAL
+
+    rooms: 2
+
+    displayTotalPrice: 16576.2
+
+2023-07-06 03:53:50: generateURL function variables at run time:
+
+
+    url: https://74eubmkfx45x2cethdv23m6usm0jypcu.lambda-url.us-east-1.on.aws/?hotel=6&checkin=2023-08-03&checkout=2023-08-10&adults=1&children=2&child_age_1=2&child_age_2=3
+
+2023-07-06 03:53:52: calculateTotalPrice function variables at run time:
+
+
+    priceValues: Array
+
+    numberOfRooms: 2
+
+    total: 16576.2
+
+2023-07-06 03:53:52: set_room_cookies function variables at run time:
+
+
+    hotel: 6
+
+    checkin: 2023-08-03
+
+    checkout: 2023-08-10
+
+    adults: 1
+
+    children: 2
+
+    child_age_1: 2
+
+    child_age_2: 3
+
+    roomCode: SUPCASAL
+
+    rooms: 2
+
+    displayTotalPrice: 16576.2
+
+2023-07-06 03:55:12: generateURL function variables at run time:
+
+
+    url: https://74eubmkfx45x2cethdv23m6usm0jypcu.lambda-url.us-east-1.on.aws/?hotel=6&checkin=2023-08-03&checkout=2023-08-10&adults=1&children=2&child_age_1=2&child_age_2=3
+
+2023-07-06 03:55:14: calculateTotalPrice function variables at run time:
+
+
+    priceValues: Array
+
+    numberOfRooms: 2
+
+    total: 16576.2
+
+2023-07-06 03:55:14: set_room_cookies function variables at run time:
+
+
+    hotel: 6
+
+    checkin: 2023-08-03
+
+    checkout: 2023-08-10
+
+    adults: 1
+
+    children: 2
+
+    child_age_1: 2
+
+    child_age_2: 3
+
+    roomCode: SUPCASAL
+
+    rooms: 2
+
+    displayTotalPrice: 16576.2
+
+2023-07-06 03:57:07: generateURL function variables at run time:
+
+
+    url: https://74eubmkfx45x2cethdv23m6usm0jypcu.lambda-url.us-east-1.on.aws/?hotel=6&checkin=2023-08-03&checkout=2023-08-10&adults=1&children=2&child_age_1=2&child_age_2=3
+
+2023-07-06 03:57:09: calculateTotalPrice function variables at run time:
+
+
+    priceValues: Array
+
+    numberOfRooms: 2
+
+    total: 16576.2
+
+2023-07-06 03:57:09: set_room_cookies function variables at run time:
+
+
+    hotel: 6
+
+    checkin: 2023-08-03
+
+    checkout: 2023-08-10
+
+    adults: 1
+
+    children: 2
+
+    child_age_1: 2
+
+    child_age_2: 3
+
+    roomCode: SUPCASAL
+
+    rooms: 2
+
+    displayTotalPrice: 16576.2
+
+2023-07-06 03:59:12: generateURL function variables at run time:
+
+
+    url: https://74eubmkfx45x2cethdv23m6usm0jypcu.lambda-url.us-east-1.on.aws/?hotel=6&checkin=2023-08-03&checkout=2023-08-10&adults=1&children=2&child_age_1=2&child_age_2=3
+
+2023-07-06 03:59:14: calculateTotalPrice function variables at run time:
+
+
+    priceValues: Array
+
+    numberOfRooms: 2
+
+    total: 16576.2
+
+2023-07-06 03:59:14: set_room_cookies function variables at run time:
+
+
+    hotel: 6
+
+    checkin: 2023-08-03
+
+    checkout: 2023-08-10
+
+    adults: 1
+
+    children: 2
+
+    child_age_1: 2
+
+    child_age_2: 3
+
+    roomCode: SUPCASAL
+
+    rooms: 2
+
+    displayTotalPrice: 16576.2
+
+2023-07-06 03:59:30: generateURL function variables at run time:
+
+
+    url: https://74eubmkfx45x2cethdv23m6usm0jypcu.lambda-url.us-east-1.on.aws/?hotel=6&checkin=2023-08-03&checkout=2023-08-10&adults=1&children=2&child_age_1=2&child_age_2=3
+
+2023-07-06 03:59:31: calculateTotalPrice function variables at run time:
+
+
+    priceValues: Array
+
+    numberOfRooms: 2
+
+    total: 16576.2
+
+2023-07-06 03:59:31: set_room_cookies function variables at run time:
+
+
+    hotel: 6
+
+    checkin: 2023-08-03
+
+    checkout: 2023-08-10
+
+    adults: 1
+
+    children: 2
+
+    child_age_1: 2
+
+    child_age_2: 3
+
+    roomCode: SUPCASAL
+
+    rooms: 2
+
+    displayTotalPrice: 16576.2
+
+2023-07-06 04:00:15: generateURL function variables at run time:
+
+
+    url: https://74eubmkfx45x2cethdv23m6usm0jypcu.lambda-url.us-east-1.on.aws/?hotel=6&checkin=2023-08-03&checkout=2023-08-10&adults=1&children=2&child_age_1=2&child_age_2=3
+
+2023-07-06 04:00:17: calculateTotalPrice function variables at run time:
+
+
+    priceValues: Array
+
+    numberOfRooms: 2
+
+    total: 16576.2
+
+2023-07-06 04:00:17: set_room_cookies function variables at run time:
+
+
+    hotel: 6
+
+    checkin: 2023-08-03
+
+    checkout: 2023-08-10
+
+    adults: 1
+
+    children: 2
+
+    child_age_1: 2
+
+    child_age_2: 3
+
+    roomCode: SUPCASAL
+
+    rooms: 2
+
+    displayTotalPrice: 16576.2
+
+2023-07-06 04:00:51: generateURL function variables at run time:
+
+
+    url: https://74eubmkfx45x2cethdv23m6usm0jypcu.lambda-url.us-east-1.on.aws/?hotel=6&checkin=2023-08-03&checkout=2023-08-10&adults=1&children=2&child_age_1=2&child_age_2=3
+
+2023-07-06 04:00:53: calculateTotalPrice function variables at run time:
+
+
+    priceValues: Array
+
+    numberOfRooms: 2
+
+    total: 16576.2
+
+2023-07-06 04:00:53: set_room_cookies function variables at run time:
+
+
+    hotel: 6
+
+    checkin: 2023-08-03
+
+    checkout: 2023-08-10
+
+    adults: 1
+
+    children: 2
+
+    child_age_1: 2
+
+    child_age_2: 3
+
+    roomCode: SUPCASAL
+
+    rooms: 2
+
+    displayTotalPrice: 16576.2
+
+2023-07-06 04:01:26: generateURL function variables at run time:
+
+
+    url: https://74eubmkfx45x2cethdv23m6usm0jypcu.lambda-url.us-east-1.on.aws/?hotel=6&checkin=2023-08-03&checkout=2023-08-10&adults=1&children=2&child_age_1=2&child_age_2=3
+
+2023-07-06 04:01:28: calculateTotalPrice function variables at run time:
+
+
+    priceValues: Array
+
+    numberOfRooms: 2
+
+    total: 16576.2
+
+2023-07-06 04:01:28: set_room_cookies function variables at run time:
+
+
+    hotel: 6
+
+    checkin: 2023-08-03
+
+    checkout: 2023-08-10
+
+    adults: 1
+
+    children: 2
+
+    child_age_1: 2
+
+    child_age_2: 3
+
+    roomCode: SUPCASAL
+
+    rooms: 2
+
+    displayTotalPrice: 16576.2
+
+2023-07-06 04:02:41: generateURL function variables at run time:
+
+
+    url: https://74eubmkfx45x2cethdv23m6usm0jypcu.lambda-url.us-east-1.on.aws/?hotel=6&checkin=2023-08-03&checkout=2023-08-10&adults=1&children=2&child_age_1=2&child_age_2=3
+
+2023-07-06 04:02:43: calculateTotalPrice function variables at run time:
+
+
+    priceValues: Array
+
+    numberOfRooms: 2
+
+    total: 16576.2
+
+2023-07-06 04:02:43: set_room_cookies function variables at run time:
+
+
+    hotel: 6
+
+    checkin: 2023-08-03
+
+    checkout: 2023-08-10
+
+    adults: 1
+
+    children: 2
+
+    child_age_1: 2
+
+    child_age_2: 3
+
+    roomCode: SUPCASAL
+
+    rooms: 2
+
+    displayTotalPrice: 16576.2
+
+2023-07-06 04:04:17: generateURL function variables at run time:
+
+
+    url: https://74eubmkfx45x2cethdv23m6usm0jypcu.lambda-url.us-east-1.on.aws/?hotel=6&checkin=2023-08-03&checkout=2023-08-10&adults=1&children=2&child_age_1=2&child_age_2=3
+
+2023-07-06 04:04:19: calculateTotalPrice function variables at run time:
+
+
+    priceValues: Array
+
+    numberOfRooms: 2
+
+    total: 16576.2
+
+2023-07-06 04:04:19: set_room_cookies function variables at run time:
+
+
+    hotel: 6
+
+    checkin: 2023-08-03
+
+    checkout: 2023-08-10
+
+    adults: 1
+
+    children: 2
+
+    child_age_1: 2
+
+    child_age_2: 3
+
+    roomCode: SUPCASAL
+
+    rooms: 2
+
+    displayTotalPrice: 16576.2
+
+2023-07-06 04:25:55: generateURL function variables at run time:
+
+
+    url: https://74eubmkfx45x2cethdv23m6usm0jypcu.lambda-url.us-east-1.on.aws/?hotel=6&checkin=2023-08-03&checkout=2023-08-10&adults=1&children=2&child_age_1=2&child_age_2=3
+
+2023-07-06 04:25:58: calculateTotalPrice function variables at run time:
+
+
+    priceValues: Array
+
+    numberOfRooms: 2
+
+    total: 16576.2
+
+2023-07-06 04:25:58: set_room_cookies function variables at run time:
+
+
+    hotel: 6
+
+    checkin: 2023-08-03
+
+    checkout: 2023-08-10
+
+    adults: 1
+
+    children: 2
+
+    child_age_1: 2
+
+    child_age_2: 3
+
+    roomCode: SUPCASAL
+
+    rooms: 2
+
+    displayTotalPrice: 16576.2
+
+2023-07-06 04:26:54: generateURL function variables at run time:
+
+
+    url: https://74eubmkfx45x2cethdv23m6usm0jypcu.lambda-url.us-east-1.on.aws/?hotel=6&checkin=2023-08-03&checkout=2023-08-10&adults=1&children=2&child_age_1=2&child_age_2=3
+
+2023-07-06 04:26:56: calculateTotalPrice function variables at run time:
+
+
+    priceValues: Array
+
+    numberOfRooms: 2
+
+    total: 16576.2
+
+2023-07-06 04:26:56: set_room_cookies function variables at run time:
+
+
+    hotel: 6
+
+    checkin: 2023-08-03
+
+    checkout: 2023-08-10
+
+    adults: 1
+
+    children: 2
+
+    child_age_1: 2
+
+    child_age_2: 3
+
+    roomCode: SUPCASAL
+
+    rooms: 2
+
+    displayTotalPrice: 16576.2
+
+2023-07-06 04:30:49: generateURL function variables at run time:
+
+
+    url: https://74eubmkfx45x2cethdv23m6usm0jypcu.lambda-url.us-east-1.on.aws/?hotel=6&checkin=2023-08-03&checkout=2023-08-10&adults=1&children=2&child_age_1=2&child_age_2=3
+
+2023-07-06 04:30:51: calculateTotalPrice function variables at run time:
+
+
+    priceValues: Array
+
+    numberOfRooms: 2
+
+    total: 16576.2
+
+2023-07-06 04:30:51: set_room_cookies function variables at run time:
+
+
+    hotel: 6
+
+    checkin: 2023-08-03
+
+    checkout: 2023-08-10
+
+    adults: 1
+
+    children: 2
+
+    child_age_1: 2
+
+    child_age_2: 3
+
+    roomCode: SUPCASAL
+
+    rooms: 2
+
+    displayTotalPrice: 16576.2
+
+2023-07-06 04:32:44: generateURL function variables at run time:
+
+
+    url: https://74eubmkfx45x2cethdv23m6usm0jypcu.lambda-url.us-east-1.on.aws/?hotel=6&checkin=2023-08-03&checkout=2023-08-10&adults=1&children=2&child_age_1=2&child_age_2=3
+
+2023-07-06 04:32:46: calculateTotalPrice function variables at run time:
+
+
+    priceValues: Array
+
+    numberOfRooms: 2
+
+    total: 16576.2
+
+2023-07-06 04:32:46: set_room_cookies function variables at run time:
+
+
+    hotel: 6
+
+    checkin: 2023-08-03
+
+    checkout: 2023-08-10
+
+    adults: 1
+
+    children: 2
+
+    child_age_1: 2
+
+    child_age_2: 3
+
+    roomCode: SUPCASAL
+
+    rooms: 2
+
+    displayTotalPrice: 16576.2
+
+2023-07-06 04:53:37: generateURL function variables at run time:
+
+
+    url: https://74eubmkfx45x2cethdv23m6usm0jypcu.lambda-url.us-east-1.on.aws/?hotel=6&checkin=2023-08-03&checkout=2023-08-10&adults=1&children=2&child_age_1=2&child_age_2=3
+
+2023-07-06 04:53:39: calculateTotalPrice function variables at run time:
+
+
+    priceValues: Array
+
+    numberOfRooms: 2
+
+    total: 16576.2
+
+2023-07-06 04:53:39: set_room_cookies function variables at run time:
+
+
+    hotel: 6
+
+    checkin: 2023-08-03
+
+    checkout: 2023-08-10
+
+    adults: 1
+
+    children: 2
+
+    child_age_1: 2
+
+    child_age_2: 3
+
+    roomCode: SUPCASAL
+
+    rooms: 2
+
+    displayTotalPrice: 16576.2
+
+2023-07-06 05:01:16: generateURL function variables at run time:
+
+
+    url: https://74eubmkfx45x2cethdv23m6usm0jypcu.lambda-url.us-east-1.on.aws/?hotel=6&checkin=2023-08-03&checkout=2023-08-10&adults=1&children=2&child_age_1=2&child_age_2=3
+
+2023-07-06 05:01:17: calculateTotalPrice function variables at run time:
+
+
+    priceValues: Array
+
+    numberOfRooms: 2
+
+    total: 16576.2
+
+2023-07-06 05:01:17: set_room_cookies function variables at run time:
+
+
+    hotel: 6
+
+    checkin: 2023-08-03
+
+    checkout: 2023-08-10
+
+    adults: 1
+
+    children: 2
+
+    child_age_1: 2
+
+    child_age_2: 3
+
+    roomCode: SUPCASAL
+
+    rooms: 3
+
+    displayTotalPrice: 16576.2
+
+2023-07-06 05:34:33: generateURL function variables at run time:
+
+
+    url: https://74eubmkfx45x2cethdv23m6usm0jypcu.lambda-url.us-east-1.on.aws/?hotel=6&checkin=2023-08-03&checkout=2023-08-10&adults=1&children=2&child_age_1=2&child_age_2=3
+
+2023-07-06 05:34:35: calculateTotalPrice function variables at run time:
+
+
+    priceValues: Array
+
+    numberOfRooms: 3
+
+    total: 24864.3
+
+2023-07-06 05:34:35: set_room_cookies function variables at run time:
+
+
+    hotel: 
+
+    checkin: 
+
+    checkout: 
+
+    adults: 
+
+    children: 
+
+    child_age_1: 
+
+    child_age_2: 
+
+    roomCode: 
+
+    rooms: 
+
+    displayTotalPrice: 24864.3
+
+2023-07-06 05:36:26: generateURL function variables at run time:
+
+
+    url: https://74eubmkfx45x2cethdv23m6usm0jypcu.lambda-url.us-east-1.on.aws/?hotel=&checkin=&checkout=&adults=&children=&child_age_1=&child_age_2=
+
+2023-07-06 05:36:27: calculateTotalPrice function variables at run time:
+
+
+    priceValues: Array
+
+    numberOfRooms: 
+
+    total: 0
+
+2023-07-06 05:36:27: set_room_cookies function variables at run time:
+
+
+    hotel: 6
+
+    checkin: 2023-08-03
+
+    checkout: 2023-08-10
+
+    adults: 1
+
+    children: 2
+
+    child_age_1: 2
+
+    child_age_2: 3
+
+    roomCode: SUPCASAL
+
+    rooms: 1
+
+    displayTotalPrice: 0
+
+2023-07-06 05:36:44: generateURL function variables at run time:
+
+
+    url: https://74eubmkfx45x2cethdv23m6usm0jypcu.lambda-url.us-east-1.on.aws/?hotel=6&checkin=2023-08-03&checkout=2023-08-10&adults=1&children=2&child_age_1=2&child_age_2=3
+
+2023-07-06 05:36:46: calculateTotalPrice function variables at run time:
+
+
+    priceValues: Array
+
+    numberOfRooms: 1
+
+    total: 8288.1
+
+2023-07-06 05:36:46: set_room_cookies function variables at run time:
+
+
+    hotel: 6
+
+    checkin: 2023-08-03
+
+    checkout: 2023-08-10
+
+    adults: 1
+
+    children: 2
+
+    child_age_1: 2
+
+    child_age_2: 3
+
+    roomCode: SUPCASAL
+
+    rooms: 2
+
+    displayTotalPrice: 8288.1
+
+2023-07-06 05:36:54: generateURL function variables at run time:
+
+
+    url: https://74eubmkfx45x2cethdv23m6usm0jypcu.lambda-url.us-east-1.on.aws/?hotel=6&checkin=2023-08-03&checkout=2023-08-10&adults=1&children=2&child_age_1=2&child_age_2=3
+
+2023-07-06 05:36:56: calculateTotalPrice function variables at run time:
+
+
+    priceValues: Array
+
+    numberOfRooms: 2
+
+    total: 16576.2
+
+2023-07-06 05:36:56: set_room_cookies function variables at run time:
+
+
+    hotel: 6
+
+    checkin: 2023-08-03
+
+    checkout: 2023-08-10
+
+    adults: 1
+
+    children: 2
+
+    child_age_1: 2
+
+    child_age_2: 3
+
+    roomCode: SUPCASAL
+
+    rooms: 1
+
+    displayTotalPrice: 16576.2
+
+2023-07-06 05:49:21: generateURL function variables at run time:
+
+
+    url: https://74eubmkfx45x2cethdv23m6usm0jypcu.lambda-url.us-east-1.on.aws/?hotel=6&checkin=2023-08-03&checkout=2023-08-10&adults=1&children=2&child_age_1=2&child_age_2=3
+
+2023-07-06 05:49:23: calculateTotalPrice function variables at run time:
+
+
+    priceValues: Array
+
+    numberOfRooms: 1
+
+    total: 8288.1
+
+2023-07-06 05:49:23: set_room_cookies function variables at run time:
+
+
+    hotel: 6
+
+    checkin: 2023-08-03
+
+    checkout: 2023-08-10
+
+    adults: 1
+
+    children: 2
+
+    child_age_1: 2
+
+    child_age_2: 3
+
+    roomCode: SUPCASAL
+
+    rooms: 3
+
+    displayTotalPrice: 8288.1
+
+2023-07-06 06:02:12: set_user_data function variables at run time:
+
+
+    firstName: Anderson
+
+    lastName: Bassan
+
+    email: contato@andersonbassan.com
+
+    cpf: 089.632.259-92
+
+    countryCode: 55
+
+    ddd: 41
+
+    phone: 9 8485-1236
+
+    address: Rua Tenente Djalma Dutra
+
+    houseNumber: 160
+
+    houseInfo: Centro
+
+    country: Brasil
+
+    state: AC
+
+2023-07-06 06:09:18: set_user_data function variables at run time:
+
+
+    firstName: Anderson
+
+    lastName: Bassan
+
+    email: contato@andersonbassan.com
+
+    cpf: 089.632.259-92
+
+    countryCode: 55
+
+    ddd: 41
+
+    phone: 4 1984-8512
+
+    address: Rua Tenente Djalma Dutra
+
+    houseNumber: 160
+
+    houseInfo: Centro
+
+    country: Brasil
+
+    state: AC
+
+2023-07-06 06:50:29: set_user_data function variables at run time:
+
+
+    firstName: Anderson
+
+    lastName: Bassan
+
+    email: contato@andersonbassan.com
+
+    cpf: 089.632.259-92
+
+    countryCode: 55
+
+    ddd: 41
+
+    phone: 4 1984-8512
+
+    address: Rua Tenente Djalma Dutra
+
+    houseNumber: 160
+
+    houseInfo: Centro
+
+    country: Brasil
+
+    state: PR
+
+2023-07-06 06:55:32: set_user_data function variables at run time:
+
+
+    firstName: Anderson
+
+    lastName: Bassan
+
+    email: contato@andersonbassan.com
+
+    cpf: 089.632.259-92
+
+    countryCode: 55
+
+    ddd: 41
+
+    phone: 4 1984-8512
+
+    address: Rua Tenente Djalma Dutra
+
+    houseNumber: 160
+
+    houseInfo: Centro
+
+    country: Brasil
+
+    state: PR
+
+2023-07-06 06:56:01: set_user_data function variables at run time:
+
+
+    firstName: Anderson
+
+    lastName: Bassan
+
+    email: contato@andersonbassan.com
+
+    cpf: 089.632.259-92
+
+    countryCode: 55
+
+    ddd: 41
+
+    phone: 9 8485-1236
+
+    address: Rua Tenente Djalma Dutra
+
+    houseNumber: 160
+
+    houseInfo: Centro
+
+    country: Brasil
+
+    state: PR
+
+2023-07-06 07:21:47: set_user_data function variables at run time:
+
+
+    firstName: Anderson
+
+    lastName: Bassan
+
+    email: contato@andersonbassan.com
+
+    cpf: 089.632.259-92
+
+    countryCode: 55
+
+    ddd: 41
+
+    phone: 9 8485-1236
+
+    address: Rua Tenente Djalma Dutra
+
+    houseNumber: 160
+
+    houseInfo: Centro
+
+    country: Brasil
+
+    state: PR
+
+2023-07-06 07:23:06: set_user_data function variables at run time:
+
+
+    firstName: Anderson
+
+    lastName: Bassan
+
+    email: contato@andersonbassan.com
+
+    cpf: 089.632.259-92
+
+    countryCode: 55
+
+    ddd: 41
+
+    phone: 9 8485-1236
+
+    address: Rua Tenente Djalma Dutra
+
+    houseNumber: 160
+
+    houseInfo: Centro
+
+    country: Brasil
+
+    state: PR
+
+2023-07-06 07:39:23: set_user_data function variables at run time:
+
+
+    firstName: Anderson
+
+    lastName: Bassan
+
+    email: contato@andersonbassan.com
+
+    cpf: 089.632.259-92
+
+    countryCode: 55
+
+    ddd: 41
+
+    phone: 9 8485-1236
+
+    address: Rua Tenente Djalma Dutra
+
+    houseNumber: 160
+
+    houseInfo: Centro
+
+    country: Brasil
+
+    state: PR
+
+2023-07-06 07:45:05: set_user_data function variables at run time:
+
+
+    firstName: Anderson
+
+    lastName: Bassan
+
+    email: contato@andersonbassan.com
+
+    cpf: 089.632.259-92
+
+    countryCode: 55
+
+    ddd: 41
+
+    phone: 9 8485-1236
+
+    address: Rua Tenente Djalma Dutra
+
+    houseNumber: 160
+
+    houseInfo: Centro
+
+    country: Brasil
+
+    state: PR
+
+2023-07-06 07:59:38: set_user_data function variables at run time:
+
+
+    firstName: Anderson
+
+    lastName: Bassan
+
+    email: contato@andersonbassan.com
+
+    cpf: 089.632.259-92
+
+    countryCode: 55
+
+    ddd: 41
+
+    phone: 9 8485-1236
+
+    address: Rua Tenente Djalma Dutra
+
+    houseNumber: 160
+
+    houseInfo: Centro
+
+    country: Brasil
+
+    state: PR
+
+2023-07-06 08:00:27: set_user_data function variables at run time:
+
+
+    firstName: Anderson
+
+    lastName: Bassan
+
+    email: contato@andersonbassan.com
+
+    cpf: 089.632.259-92
+
+    countryCode: 55
+
+    ddd: 41
+
+    phone: 9 8485-1236
+
+    address: Rua Tenente Djalma Dutra
+
+    houseNumber: 160
+
+    houseInfo: Centro
+
+    country: Brasil
+
+    state: PR
+
+2023-07-06 08:02:38: generateURL function variables at run time:
+
+
+    url: https://74eubmkfx45x2cethdv23m6usm0jypcu.lambda-url.us-east-1.on.aws/?hotel=&checkin=&checkout=&adults=&children=&child_age_1=&child_age_2=
+
+2023-07-06 08:02:39: calculateTotalPrice function variables at run time:
+
+
+    priceValues: Array
+
+    numberOfRooms: 
+
+    total: 0
+
+2023-07-06 08:02:39: set_room_cookies function variables at run time:
+
+
+    hotel: 6
+
+    checkin: 2023-08-03
+
+    checkout: 2023-08-10
+
+    adults: 1
+
+    children: 2
+
+    child_age_1: 2
+
+    child_age_2: 3
+
+    roomCode: SUPCASAL
+
+    rooms: 2
+
+    displayTotalPrice: 0
+

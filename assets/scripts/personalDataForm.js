@@ -4,9 +4,33 @@
 const updatePersonalDataForm = () => {
   const sendButton = document.querySelector('#personal-data-form .buttons-wrapper .send');
   const updateButton = document.querySelector('#personal-data-form .buttons-wrapper .change');
+  const guestsForm = document.querySelector('#guests-form');
+  const guestsFormSendButton = document.querySelector('#guests-form .buttons-wrapper .send');
+  const guestsFormChangeButton = document.querySelector('#guests-form .buttons-wrapper .change');
 
   sendButton.classList.remove('active');
   updateButton.classList.add('active');
+
+  if (! getCookie('guestFullName')) {
+    guestsForm.classList.add('active');
+    guestsFormChangeButton.classList.remove('active');
+    guestsFormSendButton.classList.add('active');
+  } else {
+    guestForm.classList.add('active');
+    guestsFormSendButton.classList.remove('active');
+    guestsFormChangeButton.classList.add('active');
+  }
+}
+
+const updateGuestsForm = () => {
+  const guestsForm = document.querySelector('#guests-form');
+  const guestsFormSendButton = document.querySelector('#guests-form .buttons-wrapper .send');
+  const guestsFormChangeButton = document.querySelector('#guests-form .buttons-wrapper .change');
+
+
+  guestsForm.classList.add('active');
+  guestsFormSendButton.classList.remove('active');
+  guestsFormChangeButton.classList.add('active');
 }
 
 const personalDataFormBackEndError = () => {
@@ -15,9 +39,85 @@ const personalDataFormBackEndError = () => {
   formError.classList.add('active');
 }
 
+const guestsFormBackEndError = () => {
+  const formError = document.querySelector('#guests-error');
+
+  formError.classList.add('active');
+}
+
 
 // validations
 
+
+const validateGuestsFormData = () => {
+  const adultsNumber = document.querySelector('#adults-number');
+  const childrenNumber = document.querySelector('#children-number');
+  const guestFullName = document.querySelector('#guest-full-name');
+  const guestEmail = document.querySelector('#guest-email');
+  const visitorFullName = document.querySelector('#visitor-full-name');
+  const visitorAge = document.querySelector('#visitor-age');
+  const visitorEmail = document.querySelector('#visitor-email');
+
+  const adultsNumberError = document.querySelector('#adults-number-wrapper .error');
+  const childrenNumberError = document.querySelector('#children-number-wrapper .error');
+  const guestFullNameError = document.querySelector('#guest-full-name-wrapper .error');
+  const guestEmailError = document.querySelector('#guest-email-wrapper .error');
+  const visitorFullNameError = document.querySelector('#visitor-full-name-wrapper .error');
+  const visitorAgeError = document.querySelector('#visitor-age-wrapper .error');
+  const visitorEmailError = document.querySelector('#visitor-email-wrapper .error');
+  let isValid = true;
+
+  if (!validateNumber(adultsNumber.value)) {
+    adultsNumberError.classList.add('active');
+    isValid = false;
+  } else {
+    adultsNumberError.classList.remove('active');
+  }
+
+  if (!validateNumber(childrenNumber.value)) {
+    childrenNumberError.classList.add('active');
+    isValid = false;
+  } else {
+    childrenNumberError.classList.remove('active');
+  }
+
+  if (!validateName(guestFullName.value)) {
+    guestFullNameError.classList.add('active');
+    isValid = false;
+  } else {
+    guestFullNameError.classList.remove('active');
+  }
+
+  if (!validateEMail(guestEmail.value)) {
+    guestEmailError.classList.add('active');
+    isValid = false;
+  } else {
+    guestEmailError.classList.remove('active');
+  }
+
+  if (!validateName(visitorFullName.value) && visitorFullName.value !== '') {
+    visitorFullNameError.classList.add('active');
+    isValid = false;
+  } else {
+    visitorFullNameError.classList.remove('active');
+  }
+
+  if (!validateAge(visitorAge.value) && visitorAge.value !== '') {
+    visitorAgeError.classList.add('active');
+    isValid = false;
+  } else {
+    visitorAgeError.classList.remove('active');
+  }
+
+  if (!validateEMail(visitorEmail.value) && visitorEmail.value !== '') {
+    visitorEmailError.classList.add('active');
+    isValid = false;
+  } else {
+    visitorEmailError.classList.remove('active');
+  }
+
+  return isValid;
+}
 
 const validatePersonalDataFormData = () => {
   const firstNameInput = document.querySelector('#first-name');
@@ -193,21 +293,67 @@ const validateCountry = (country) => {
   return (country != '');
 };
 
+const validateNumber = (number) => {
+  return /^\d*$/.test(number);
+};
+
+const validateAge = (number) => {
+  return /^\d+$/.test(number) && parseInt(number) > 0;
+};
+
+
 
 // event listeners
 
 
 window.addEventListener('load', () => {
   // show correct button based on if there's user data or not
+  const guestForm = document.querySelector('#guests-form');
   const userDataSendButton = document.querySelector('#personal-data-form button.send');
   const userDataChangeButton = document.querySelector('#personal-data-form button.change');
 
-  if (! getCookie('firtName')) {
+  const guestsFormSendButton = document.querySelector('#guests-form button.send');
+  const guestsFormChangeButton = document.querySelector('#guests-form button.change');
+
+
+  // send or change button based on cookies for user data
+  if (! getCookie('firstName')) {
     userDataChangeButton.classList.remove('active');
     userDataSendButton.classList.add('active');
   } else {
+    document.querySelector('#first-name').value = getCookie('firstName');
+    document.querySelector('#last-name').value = getCookie('lastName');
+    document.querySelector('#email').value = getCookie('email');
+    document.querySelector('#cpf').value = getCookie('cpf');
+    document.querySelector('#country-code').value = getCookie('countryCode');
+    document.querySelector('#ddd').value = getCookie('ddd');
+    document.querySelector('#phone').value = getCookie('phone');
+    document.querySelector('#address').value = getCookie('address');
+    document.querySelector('#house-number').value = getCookie('houseNumber');
+    document.querySelector('#house-info').value = getCookie('houseInfo');
+    document.querySelector('#country').value = getCookie('country');
+    document.querySelector('#state').value = getCookie('state');
+
     userDataSendButton.classList.remove('active');
     userDataChangeButton.classList.add('active');
+  }
+
+  // send or change button based on cookies for user guests
+  if (! getCookie('guestFullName')) {
+    guestsFormChangeButton.classList.remove('active');
+    guestsFormSendButton.classList.add('active');
+  } else {
+    document.querySelector('#adults-number').value = getCookie('adultsNumber');
+    document.querySelector('#children-number').value = getCookie('childrenNumber');
+    document.querySelector('#guest-full-name').value = getCookie('guestFullName');
+    document.querySelector('#guest-email').value = getCookie('guestEmail');
+    document.querySelector('#visitor-full-name').value = getCookie('visitorFullName');
+    document.querySelector('#visitor-age').value = getCookie('visitorAge');
+    document.querySelector('#visitor-email').value = getCookie('visitorEmail');
+
+    guestForm.classList.add('active');
+    guestsFormSendButton.classList.remove('active');
+    guestsFormChangeButton.classList.add('active');
   }
 
 
@@ -222,6 +368,14 @@ window.addEventListener('load', () => {
   const houseNumberInput = document.querySelector('#house-number');
   const countryInput = document.querySelector('#country');
   const stateInput = document.querySelector('#state');
+
+  const adultsNumber = document.querySelector('#adults-number');
+  const childrenNumber = document.querySelector('#children-number');
+  const guestFullName = document.querySelector('#guest-full-name');
+  const guestEmail = document.querySelector('#guest-email');
+  const visitorFullName = document.querySelector('#visitor-full-name');
+  const visitorAge = document.querySelector('#visitor-age');
+  const visitorEmail = document.querySelector('#visitor-email');
 
   const allErrors = document.querySelectorAll('#personal-data-form .error');
 
@@ -262,12 +416,113 @@ window.addEventListener('load', () => {
 
       url = 'http://localhost/wp-json/lista-quartos-plugin/v1/set-user-data';
 
-      console.log(userData);
+      sendPostRequest(url, userData, updatePersonalDataForm, personalDataFormBackEndError);
+    }
+
+  });
+
+  userDataChangeButton.addEventListener('click', () => {
+    // values for sending
+    const firstName = document.querySelector('#first-name').value;
+    const lastName = document.querySelector('#last-name').value;
+    const email = document.querySelector('#email').value;
+    const cpf = document.querySelector('#cpf').value;
+    const countryCode = document.querySelector('#country-code').value;
+    const ddd = document.querySelector('#ddd').value;
+    const phone = document.querySelector('#phone').value;
+    const address = document.querySelector('#address').value;
+    const houseNumber = document.querySelector('#house-number').value;
+    const houseInfo = document.querySelector('#house-info').value;
+    const country = document.querySelector('#country').value;
+    const state = document.querySelector('#state').value;
+
+    allErrors.forEach((error) => {
+      error.classList.remove('active');
+    });
+
+    if (validatePersonalDataFormData()) {
+      const userData = {
+        firstName,
+        lastName,
+        email,
+        cpf,
+        countryCode,
+        ddd,
+        phone,
+        address,
+        houseNumber,
+        houseInfo,
+        country,
+        state
+      };
+
+      url = 'http://localhost/wp-json/lista-quartos-plugin/v1/set-user-data';
 
       sendPostRequest(url, userData, updatePersonalDataForm, personalDataFormBackEndError);
     }
 
   });
+
+
+  guestsFormSendButton.addEventListener('click', () => {
+    const adultsNumber = document.querySelector('#adults-number').value;
+    const childrenNumber = document.querySelector('#children-number').value;
+    const guestFullName = document.querySelector('#guest-full-name').value;
+    const guestEmail = document.querySelector('#guest-email').value;
+    const visitorFullName = document.querySelector('#visitor-full-name').value;
+    const visitorAge = document.querySelector('#visitor-age').value;
+    const visitorEmail = document.querySelector('#visitor-email').value;
+
+    allErrors.forEach((error) => {
+      error.classList.remove('active');
+    });
+
+    if (validateGuestsFormData()) {
+      const userData = {
+        adultsNumber,
+        childrenNumber,
+        guestFullName,
+        guestEmail,
+        visitorFullName,
+        visitorAge,
+        visitorEmail
+      };
+
+      url = 'http://localhost/wp-json/lista-quartos-plugin/v1/set-guests-data';
+
+      sendPostRequest(url, userData, updateGuestsForm, guestsFormBackEndError);
+    }
+  })
+
+  guestsFormChangeButton.addEventListener('click', () => {
+    const adultsNumber = document.querySelector('#adults-number').value;
+    const childrenNumber = document.querySelector('#children-number').value;
+    const guestFullName = document.querySelector('#guest-full-name').value;
+    const guestEmail = document.querySelector('#guest-email').value;
+    const visitorFullName = document.querySelector('#visitor-full-name').value;
+    const visitorAge = document.querySelector('#visitor-age').value;
+    const visitorEmail = document.querySelector('#visitor-email').value;
+
+    allErrors.forEach((error) => {
+      error.classList.remove('active');
+    });
+
+    if (validateGuestsFormData()) {
+      const userData = {
+        adultsNumber,
+        childrenNumber,
+        guestFullName,
+        guestEmail,
+        visitorFullName,
+        visitorAge,
+        visitorEmail
+      };
+
+      url = 'http://localhost/wp-json/lista-quartos-plugin/v1/set-guests-data';
+
+      sendPostRequest(url, userData, updateGuestsForm, guestsFormBackEndError);
+    }
+  })
 
 
   // masks
@@ -281,6 +536,13 @@ window.addEventListener('load', () => {
   noSpaceInputMask(emailInput);
   alphanumericAndSpaceOnlyInputMask(addressInput);
   initializeCPFInputMask(cpfInput);
+  numberOnlyInputMask(visitorAge);
+  numberOnlyInputMask(childrenNumber);
+  numberOnlyInputMask(adultsNumber);
+  letterAndSpaceOnlyInputMask(visitorFullName);
+  letterAndSpaceOnlyInputMask(guestFullName);
+  noSpaceInputMask(visitorEmail);
+  noSpaceInputMask(guestEmail);
 
 
   // cpf popup

@@ -1,10 +1,57 @@
 const updatePriceWidget = () => {
   const displayTotalPriceValue = getCookie('displayTotalPrice');
 
-  console.log(displayTotalPriceValue);
-
   const displayTotalPrice = document.querySelector('#price-widget-display-price');
-  displayTotalPrice.innerText = displayTotalPriceValue;
+  const issTaxPrice = document.querySelector('#iss-tax-price');
+  const totalPrice = document.querySelector('#total-price-widget-display-price');
+  const creditCardPreviewPrice = document.querySelector('#credit-card-preview-price');
+  const priceWidget = document.querySelector('#price-widget');
+
+  displayTotalPrice.innerText = (displayTotalPriceValue * 1).toLocaleString('pt-BR', {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2
+    });
+
+  issTaxPrice.innerText = (displayTotalPriceValue * 0.02).toLocaleString('pt-BR', {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2
+    });;
+
+  totalPrice.innerText = (displayTotalPriceValue * 1.02).toLocaleString('pt-BR', {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2
+    });
+
+  creditCardPreviewPrice.innerText = ((displayTotalPriceValue * 1.02) / 10).toLocaleString('pt-BR', {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2
+    });
+
+  priceWidget.classList.add('active');
+
+
+  const totalGuests = parseInt(getCookie('adults')) + parseInt(getCookie('children'));
+  const checkInValue = new Date(getCookie('checkin'));
+  const checkOutValue = new Date(getCookie('checkout'));
+
+  const guests = document.querySelector('#purchase-summary .guests');
+  const checkin = document.querySelector('#purchase-summary .checkin');
+  const checkout = document.querySelector('#purchase-summary .checkout');
+  const purchaseSummary = document.querySelector('#purchase-summary');
+
+  guests.innerText = totalGuests;
+  checkin.innerText = checkInValue.toLocaleDateString('en-US', {
+      day: '2-digit',
+      month: '2-digit',
+      year: 'numeric'
+    });
+  checkout.innerText = checkOutValue.toLocaleDateString('en-US', {
+      day: '2-digit',
+      month: '2-digit',
+      year: 'numeric'
+    });
+
+  purchaseSummary.classList.add('active');
 }
 
 
@@ -72,6 +119,7 @@ window.addEventListener('load', () => {
   const numberDropdown = document.querySelector('#number-dropdown');
   const priceInput = document.querySelector('#price-input');
   const priceWidget = document.querySelector('#price-widget');
+  const popupPriceValue = document.querySelector('#popup-price-value');
 
   let itemData = {}; // Declare itemData outside the loop
 
@@ -87,6 +135,7 @@ window.addEventListener('load', () => {
         itemData[key] = value;
       }
 
+      popupPriceValue.innerText = item.getAttribute('data-price');
       popupWrapper.classList.add('active');
 
       event.preventDefault();
@@ -98,7 +147,7 @@ window.addEventListener('load', () => {
     numberDropdown.value = 1;
   });
 
-  sendButton.addEventListener('click', () => {
+  numberDropdown.addEventListener('change', () => {
     const dropdownValue = numberDropdown.value;
 
     itemData.rooms = dropdownValue;

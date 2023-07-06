@@ -30,12 +30,39 @@ class listaPrecoWidget extends Widget_Base {
     protected function render() {
         $settings = $this->get_settings_for_display();
 
+        $pixImgUrl = $icon1Image = plugins_url('/assets/images/logo_pix.png', dirname(__FILE__));
+
         $priceWidgetLayout = <<<EOT
           <div id="price-widget">
-            <p>R$ <span id="price-widget-display-price"></span></p>
+            <h2>Resumo dos preços</h2>
+            <div class="iss-tax-wrapper">
+              <div class="tax-label">
+              Taxa ISS
+              </div>
+              <div class="price-tax-preview">
+                <p class="price-widget-display-price">R$ <span class="price-widget-display-price" id="price-widget-display-price">4.550,40</span></p>
+                <p class="iss-tax-preview">R$ <span class="iss-tax-preview" id="iss-tax-price">91,00</span></p>
+              </div>
+            </div>
+            <div class="price-wrapper">
+              <div class="total-label">
+              TOTAL
+              </div>
+              <div class="total-price-preview">
+                <p class="total-price-widget-display-price">R$ <span class="total-price-widget-display-price" id="total-price-widget-display-price">4.550,40</span></p>
+                <p class="credit-card-preview">em até 10x de R$<span class="credit-card-preview" id="credit-card-preview-price">464,14</span></p>
+              </div>
+            </div>
+            <div class="book-button-wrapper">
+              <button class="book-button">RESERVAR</button>
+            </div>
+            <div class="pix-wrapper">
+              <img class="pix-img" src="%s">
+              <p class="pix-discount">Pague com pix e ganhe mais 5%% de desconto</p>
+            </div>
           </div>
           EOT;
 
-        echo $priceWidgetLayout;
+          echo sprintf($priceWidgetLayout, $pixImgUrl);
     }
 }

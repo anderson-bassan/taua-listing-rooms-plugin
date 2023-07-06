@@ -83,6 +83,14 @@ function validateCountry($country) {
   return ($country != '');
 }
 
+function validateNumber($number) {
+  return preg_match('/^\d*$/', $number);
+}
+
+function validateAge($number) {
+  return preg_match('/^\d+$/', $number) && intval($number) > 0;
+}
+
 
 // api callbacks
 
@@ -266,6 +274,30 @@ function set_user_data($request) {
   }
 }
 
+function set_guests_data($request) {
+  $adultsNumber = $request['adultsNumber'];
+  $childrenNumber = $request['childrenNumber'];
+  $guestFullName = $request['guestFullName'];
+  $guestEmail = $request['guestEmail'];
+  $visitorFullName = $request['visitorFullName'];
+  $visitorAge = $request['visitorAge'];
+  $visitorEmail = $request['visitorEmail'];
+
+  if (validateGuestsData($request)) {
+    setcookie('adultsNumber', $adultsNumber, 0, '/', '', false);
+    setcookie('childrenNumber', $childrenNumber, 0, '/', '', false);
+    setcookie('guestFullName', $guestFullName, 0, '/', '', false);
+    setcookie('guestEmail', $guestEmail, 0, '/', '', false);
+    setcookie('visitorFullName', $visitorFullName, 0, '/', '', false);
+    setcookie('visitorAge', $visitorAge, 0, '/', '', false);
+    setcookie('visitorEmail', $visitorEmail, 0, '/', '', false);
+
+    return ['ok' => true];
+  } else {
+    return ['ok' => false];
+  }
+}
+
 function validatePersonalData($request) {
   if (!validateName($request['firstName'])) {
     return false;
@@ -310,6 +342,38 @@ function validatePersonalData($request) {
   return true;
 }
 
+function validateGuestsData($request) {
+  if (!validateName($request['visitorFullName']) && !empty($request['visitorFullName'])) {
+    return false;
+  }
+
+  if (!validateName($request['guestFullName'])) {
+    return false;
+  }
+
+  if (!validateNumber($request['adultsNumber'])) {
+    return false;
+  }
+
+  if (!validateNumber($request['childrenNumber'])) {
+    return false;
+  }
+
+  if (!validateAge($request['visitorAge']) && !empty($request['visitorAge'])) {
+    return false;
+  }
+
+  if (!validateEMail($request['visitorEmail']) && !empty($request['visitorEmail'])) {
+    return false;
+  }
+
+  if (!validateEMail($request['guestEmail'])) {
+    return false;
+  }
+
+  return true;
+}
+
 
 // API endpoints
 
@@ -334,6 +398,11 @@ function register_api_routes() {
     register_rest_route('lista-quartos-plugin/v1', '/set-user-data', array(
         'methods' => 'POST',
         'callback' => 'set_user_data',
+    ));
+
+    register_rest_route('lista-quartos-plugin/v1', '/set-guests-data', array(
+        'methods' => 'POST',
+        'callback' => 'set_guests_data',
     ));
 }
 
